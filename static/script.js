@@ -20,7 +20,21 @@ function checkAnswer(btn, selected) {
 
     answeredCount++;
 
-    if (answeredCount === totalCount) {
-        alert(score);
-    }
+    document.querySelector('.score-lbl').innerHTML = score / totalCount * 100 + '%';
+    document.querySelector('.answer-lbl').innerHTML = answeredCount;
+    updateScore(score, totalCount, 'score-bar');
+    updateScore(answeredCount, totalCount, 'answered-bar');
+
+    // if (answeredCount === totalCount) {
+    //     alert(score);
+    // }
+}
+
+function updateScore(current, total, bar) {
+    const progressBar = document.getElementById(bar);
+    const percent = current / total;
+    const offset = 440 - (440 * percent);
+    // here 440 is the circumference 2piR
+
+    progressBar.style.strokeDashoffset = offset;
 }

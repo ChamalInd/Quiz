@@ -12,6 +12,30 @@
     width: 100%;
 }
 
+.main {
+    display: flex;
+}
+
+.main .left {
+    width: 80%;
+}
+
+.main .right {
+    width: 20%;
+    margin-top: 50px;
+    text-align: center;
+}
+
+.main .right h1, .main .right h2 {
+    font-weight: bolder;
+}
+
+#score-bar, #answered-bar {
+    transition: stroke-dashoffset 0.5s ease-in-out;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
 .question-div {
     width: 80%;
     margin: auto;
@@ -65,5 +89,22 @@
 
     .form-div label {
         width: 40%;
+    }
+
+    .main {
+        display: block;
+    }
+    
+    .main .left, .main .right {
+        width: 100%;
+    }
+
+    .right .stat {
+        display: flex;
+        width: 100%;
+    }
+
+    .right .stat div {
+        margin: auto;
     }
 }
