@@ -12,15 +12,31 @@ app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 
-@app.route('/')
-def index():
-    # print(session['questions'])
-    return render_template('index.html')
-
 # linking the database
 create_database()
 con = sqlite3.connect('quiz.db', check_same_thread=False)
 cur = con.cursor()
+
+@app.route('/', methods=['POST', 'GET'])
+def index():
+    if request.method == 'POST':
+        quiz = int(request.form.get('quiz'))
+        session['quiz_id'] = quiz
+        return redirect('/quiz')
+    data = cur.execute('SELECT id, title FROM quiz').fetchall()
+    return render_template('index.html', data=data)
+
+@app.route('/quiz')
+def quiz():
+    quiz_name = cur.execute('SELECT title FROM quiz WHERE id = ?', (session['quiz_id'], )).fetchall()[0][0]
+    no_of_ques = cur.execute('SELECT nos FROM quiz WHERE id = ?', (session['quiz_id'], )).fetchall()[0][0]
+    quiz_data = []
+    for i in range(no_of_ques):
+        data = cur.execute('SELECT ques.question, ques.answer FROM qanda qa JOIN quiz q ON qa.quiz_id = q.id JOIN question ques ON qa.ques_id = ques.id WHERE q.id = ?', (session['quiz_id'], )).fetchall()[i]
+        answers = cur.execute('SELECT a.ans_1, a.ans_2, a.ans_3, a.ans_4 FROM qanda qa JOIN quiz q ON qa.quiz_id = q.id JOIN answers a ON qa.ans_id = a.id WHERE q.id = ?', (session['quiz_id'], )).fetchall()[i]
+        quiz_data.append([data[0], data[1], answers])
+    print(quiz_data)
+    return render_template('quiz.html', quiz_name=quiz_name, quiz_data=quiz_data, total=no_of_ques)
 
 @app.route('/generate', methods=['POST', 'GET'])
 def generate():

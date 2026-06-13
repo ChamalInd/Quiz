@@ -1,7 +1,16 @@
 {% extends "layout.html" %}
 
 {% block title %}Quiz - Home{% endblock %}
+{% block name %}Home{% endblock %}
 
 {% block main %}
-
+<div class="form-div">
+    <form method="post" action="/">
+{% for i in data %}
+        <div class="mb-3">
+            <button class="btn btn-primary" type="submit" name="quiz" value="{{ i[0] }}">{{ i[1] }}</button>
+        </div>
+{% endfor %}
+    </form>
+</div>
 {% endblock %}

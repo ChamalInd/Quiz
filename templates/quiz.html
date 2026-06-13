@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}Quiz{% endblock %}
+{% block name %}{{ quiz_name }}{% endblock %}
+
+{% block main %}
+<div class="main">
+    <div class="left">
+        {% for question in quiz_data %}
+        <div class="question-div">
+            <h2>{{ loop.index0 + 1 }}:&nbsp;&nbsp;{{ question[0] }}</h2>
+            <div class="questoin" data-correct="{{ question[1] }}", data-total="{{ total }}">
+                {% for answer in question[2] %}
+                    <button class="option" onclick="checkAnswer(this, {{ loop.index0 }})">{{ answer }}</button>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="right">
+        <h1>hello</h1>
+    </div>
+</div>
+{% endblock %}
