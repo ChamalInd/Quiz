@@ -14,10 +14,13 @@
 
 .main {
     display: flex;
+    height: calc(100vh - 50px);
+    overflow: hidden;
 }
 
 .main .left {
     width: 80%;
+    overflow-y: auto;
 }
 
 .main .right {
@@ -93,6 +96,8 @@
 
     .main {
         display: block;
+        height: auto;
+        overflow:: auto;
     }
     
     .main .left, .main .right {
