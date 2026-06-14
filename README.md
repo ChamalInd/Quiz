@@ -2,7 +2,14 @@
 
 ### Project Overview
 
-A simple quiz generator website, which allows users to create their own quizes and practice them. Live score count is shown next to the quiz. Since the quizes are stored in a database, users can enjoy doing there quizes any time after generating them once.
+A simple quiz generator website, which allows users to create their own quizes and practice them.
+<img width="1552" height="906" alt="image" src="https://github.com/user-attachments/assets/ea5d62b6-a9d8-4ac7-bc16-3530aa79ecab" />
+<img width="1552" height="906" alt="image" src="https://github.com/user-attachments/assets/f7a370eb-3d62-4c21-9250-1f4733c8f060" />
+
+Live score count is shown next to the quiz. 
+<img width="1552" height="906" alt="image" src="https://github.com/user-attachments/assets/689e3975-3420-4012-947c-262fb62e485f" />
+
+Since the quizes are stored in a database, users can enjoy doing there quizes any time after generating them once.
 
 ### Tech Stack
 - Back End: Python
