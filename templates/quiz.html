@@ -4,37 +4,45 @@
 {% block name %}{{ quiz_name }}{% endblock %}
 
 {% block main %}
-<div class="main">
-    <div class="left">
-        {% for question in quiz_data %}
-        <div class="question-div">
-            <h2>{{ loop.index0 + 1 }}:&nbsp;&nbsp;{{ question[0] }}</h2>
-            <div class="questoin" data-correct="{{ question[1] }}", data-total="{{ total }}">
-                {% for answer in question[2] %}
-                    <button class="option" onclick="checkAnswer(this, {{ loop.index0 }})">{{ answer }}</button>
-                {% endfor %}
-            </div>
-        </div>
-        {% endfor %}
+<div class="quiz-container">
+    <div class="top-bar">
+        <h1 class="title">{{ quiz_name }}</h1>
+        <button class="gen-btn">
+            <a href="/">Back</a>
+        </button>
     </div>
-    <div class="right">
-        <h2>Total : {{ total }}</h2>
-
-        <div class="stat">
-            <div class="score-container">
-                <h2>Score : <span class="score-lbl">0%</span></h2>
-                <svg width="200" height="200">
-                    <circle cx="80" cy="80" r="70" stroke="#eee" stroke-width="8" fill="none" />
-                    <circle id="score-bar" cx="120" cy="80" r="70" stroke="#28a745" stroke-width="8" fill="none" stroke-dasharray="440" stroke-dashoffset="440" />
-                </svg>
+    <div class="main">
+        <div class="left">
+            {% for question in quiz_data %}
+            <div class="question-div">
+                <h2>{{ loop.index0 + 1 }}:&nbsp;&nbsp;{{ question[0] }}</h2>
+                <div class="questoin" data-correct="{{ question[1] }}", data-total="{{ total }}">
+                    {% for answer in question[2] %}
+                        <button class="option" onclick="checkAnswer(this, {{ loop.index0 }})">{{ answer }}</button>
+                    {% endfor %}
+                </div>
             </div>
+            {% endfor %}
+        </div>
+        <div class="right">
+            <h2>Total : {{ total }}</h2>
 
-            <div class="answered-container">
-                <h2>Answered : <span class="answer-lbl">0</span></h2>
-                <svg width="200" height="200">
-                    <circle cx="80" cy="80" r="70" stroke="#eee" stroke-width="8" fill="none" />
-                    <circle id="answered-bar" cx="120" cy="80" r="70" stroke="#28a745" stroke-width="8" fill="none" stroke-dasharray="440" stroke-dashoffset="440" />
-                </svg>
+            <div class="stat">
+                <div class="score-container">
+                    <h2>Score : <span class="score-lbl">0%</span></h2>
+                    <svg width="200" height="200">
+                        <circle cx="80" cy="80" r="70" stroke="#eee" stroke-width="8" fill="none" />
+                        <circle id="score-bar" cx="120" cy="80" r="70" stroke="#28a745" stroke-width="8" fill="none" stroke-dasharray="440" stroke-dashoffset="440" />
+                    </svg>
+                </div>
+
+                <div class="answered-container">
+                    <h2>Answered : <span class="answer-lbl">0</span></h2>
+                    <svg width="200" height="200">
+                        <circle cx="80" cy="80" r="70" stroke="#eee" stroke-width="8" fill="none" />
+                        <circle id="answered-bar" cx="120" cy="80" r="70" stroke="#28a745" stroke-width="8" fill="none" stroke-dasharray="440" stroke-dashoffset="440" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
