@@ -43,7 +43,7 @@ sqlite3 --version
 - Clone the repository into your machine and move into the folder
 ```
 git clone https://github.com/ChamalInd/Quiz.git
-cd Sudoku
+cd Quiz
 ```
 - Then install all the requirements
 ```
