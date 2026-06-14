@@ -19,12 +19,29 @@ main {
     width: 60%;
 }
 
+.form-div .input-group {
+    border-radius: 20px;
+    height: 50px;
+}
+
+.form-div .input-group input {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-div .input-group input:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
 .form-div label {
     width: 30%;
+    font-weight: bolder;
 }
 
 .form-div button {
     width: 100%;
+    height: 50px;
     border-radius: 20px;
     background-color: cornflowerblue;
     border-color: cornflowerblue;
@@ -61,7 +78,7 @@ main {
     border: none;
 }
 
-.gen-btn a {
+.gen-btn a, .questions {
     color: white;
     font-size: 30px;
     text-decoration: none;
@@ -94,12 +111,19 @@ main {
     height: auto;
 }
 
+.quiz-page form div button {
+    height: auto;
+}
+
 .quiz-page form div button .name {
     font-weight: bolder;
     font-size: 18px;
 }
 
-
+/* generate page styling */
+.generate-div {
+    margin-top: 50px;
+}
 
 .main {
     display: flex;

@@ -1,22 +1,30 @@
 {% extends "layout.html" %}
 
 {% block title %}Quiz - Generate{% endblock %}
-{% block name %}Generate{% endblock %}
 
 {% block main %}
-<div class="form-div">
-    <form action="/generate" method="post">
-        <div class="input-group mb-3">
-            <label for="title" class="input-group-text">Title</label>
-            <input type="text" class="form-control" id="title" placeholder="Quiz Title" autocomplete="off" name="title">
-        </div>
-        <div class="input-group mb-3">
-            <label for="ques" class="input-group-text">No. of Questions</label>
-            <input type="number" class="form-control" id="ques" autocomplete="off" name="ques">
-        </div>
-        <div class="mb-3">
-            <button class="btn btn-primary" type="submit" name="page" value="one">Next</button>
-        </div>
-    </form>
+<div class="generate-container">
+    <div class="top-bar">
+        <h1 class="title">Generate Quiz</h1>
+        <button class="gen-btn">
+            <a href="/">Back</a>
+        </button>
+    </div>
+    <div class="form-div generate-div">
+        <form action="/generate" method="post">
+            <div class="input-group mb-3">
+                <label for="title" class="input-group-text">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="Quiz Title" autocomplete="off" name="title">
+            </div>
+            <div class="input-group mb-3">
+                <label for="ques" class="input-group-text">No. of Questions</label>
+                <input type="number" class="form-control" id="ques" autocomplete="off" name="ques">
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit" name="page" value="one">Next</button>
+            </div>
+        </form>
+    </div>
 </div>
+
 {% endblock%}
