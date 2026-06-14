@@ -23,7 +23,7 @@ def index():
         quiz = int(request.form.get('quiz'))
         session['quiz_id'] = quiz
         return redirect('/quiz')
-    data = cur.execute('SELECT id, title FROM quiz').fetchall()
+    data = cur.execute('SELECT id, title, nos FROM quiz').fetchall()
     return render_template('index.html', data=data)
 
 @app.route('/quiz')
@@ -35,7 +35,7 @@ def quiz():
         data = cur.execute('SELECT ques.question, ques.answer FROM qanda qa JOIN quiz q ON qa.quiz_id = q.id JOIN question ques ON qa.ques_id = ques.id WHERE q.id = ?', (session['quiz_id'], )).fetchall()[i]
         answers = cur.execute('SELECT a.ans_1, a.ans_2, a.ans_3, a.ans_4 FROM qanda qa JOIN quiz q ON qa.quiz_id = q.id JOIN answers a ON qa.ans_id = a.id WHERE q.id = ?', (session['quiz_id'], )).fetchall()[i]
         quiz_data.append([data[0], data[1], answers])
-    print(quiz_data)
+
     return render_template('quiz.html', quiz_name=quiz_name, quiz_data=quiz_data, total=no_of_ques)
 
 @app.route('/generate', methods=['POST', 'GET'])

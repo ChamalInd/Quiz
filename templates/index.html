@@ -1,16 +1,26 @@
 {% extends "layout.html" %}
 
 {% block title %}Quiz - Home{% endblock %}
-{% block name %}Home{% endblock %}
 
 {% block main %}
-<div class="form-div">
-    <form method="post" action="/">
-{% for i in data %}
-        <div class="mb-3">
-            <button class="btn btn-primary" type="submit" name="quiz" value="{{ i[0] }}">{{ i[1] }}</button>
-        </div>
-{% endfor %}
-    </form>
+<div class="index-container">
+    <div class="top-bar">
+        <h1 class="title">Quiz</h1>
+        <button class="gen-btn">
+            <a href="/generate">Create</a>
+        </button>
+    </div>
+    <div class="form-div quiz-page">
+        <form method="post" action="/">
+        {% for i in data %}
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit" name="quiz" value="{{ i[0] }}">
+                    <p class="name">{{ i[1] }}</p>
+                    <p class="ques">{{ i[2] }} Questions</p>
+                </button>
+            </div>
+        {% endfor %}
+        </form>
+    </div>
 </div>
 {% endblock %}

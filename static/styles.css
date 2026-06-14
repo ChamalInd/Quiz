@@ -1,6 +1,21 @@
+body {
+    background-image: url('background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    margin: 0;
+}
+
+main {
+    margin: 0;
+    height: 100%;
+}
+
+/* form styling */
 .form-div {
     margin: auto;
-    margin-top: 150px;
     width: 60%;
 }
 
@@ -10,7 +25,81 @@
 
 .form-div button {
     width: 100%;
+    border-radius: 20px;
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
 }
+
+.form-div button:hover {
+    background-color: rgb(80, 123, 202);
+    border-color: rgb(80, 123, 202);
+}
+
+/* index page styling */
+.index-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    text-align: center;
+    z-index: 1000;
+}
+
+.title {
+    color: #fff;
+    font-size: 100px;
+    font-weight: bolder;
+    margin-top: 50px;
+}
+
+.gen-btn {
+    background: none;
+    border: none;
+}
+
+.gen-btn a {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.gen-btn a:hover {
+    color: cornflowerblue;
+    font-weight: bolder;
+}
+
+.quiz-page {
+    flex: 1;
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+    overflow-y: auto;
+}
+
+.quiz-page form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+}
+
+.quiz-page form div {
+    width: calc(90% / 5);
+    height: auto;
+}
+
+.quiz-page form div button .name {
+    font-weight: bolder;
+    font-size: 18px;
+}
+
+
 
 .main {
     display: flex;
@@ -94,10 +183,14 @@
         width: 40%;
     }
 
+    .quiz-page form div {
+        width: 40%;
+    }
+
     .main {
         display: block;
         height: auto;
-        overflow:: auto;
+        overflow: auto;
     }
     
     .main .left, .main .right {
